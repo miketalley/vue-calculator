@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
 
-    <v-layout text-xs-right justify-center>
+    <v-layout row text-xs-right justify-center>
       <v-flex xs4>
         <v-card>
           <v-card-text>
@@ -10,30 +10,39 @@
         </v-card>
       </v-flex>
     </v-layout>
-
-    <v-layout text-xs-center justify-center>
-      <v-flex v-for="operator in operators" :key="operator" xs1>
-        <v-card dark color="primary">
-          <v-card-text>
-            <i class="fa" :class="`fa-${operator}`"></i>
-          </v-card-text>
-        </v-card>
-      </v-flex>
-    </v-layout>
     
+    <v-layout row justify-center>
 
-    <v-layout text-xs-center justify-center>
-      <v-flex xs4>  
-        <v-layout row wrap grid-list-xs>
-          <v-flex v-for="num in numbers" :key="num" xs4>
-            <v-card>
-              <v-card-text>
-                {{ num }}
+      <v-flex xs3>
+        <v-layout align-center justify-center column fill-height>
+          <v-layout text-xs-center justify-center>
+            <v-flex xs12>  
+              <v-layout row wrap grid-list-xs>
+                <v-flex v-for="num in numbers" :key="num" xs4>
+                  <v-card>
+                    <v-card-text>
+                      {{ num }}
+                    </v-card-text>
+                  </v-card>
+                </v-flex>
+              </v-layout>
+            </v-flex>
+          </v-layout>
+        </v-layout> 
+      </v-flex>
+
+      <v-flex xs1>
+        <v-layout column>
+          <v-flex v-for="operator in operators" :key="operator">
+            <v-card dark color="primary">
+              <v-card-text class="text-xs-center">
+                <i class="fa" :class="`fa-${operator}`"></i>
               </v-card-text>
             </v-card>
           </v-flex>
         </v-layout>
       </v-flex>
+
     </v-layout>
 
   </v-container>
