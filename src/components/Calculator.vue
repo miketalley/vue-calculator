@@ -1,15 +1,15 @@
 <template>
   <v-container fluid>
 
-    <v-layout row text-xs-right justify-center>
-      <v-flex xs4>
+    <v-layout row wrap text-xs-right justify-center>
+      <v-flex xs12 sm10 md4>
         <v-card dark color="grey darken-4">
           <v-card-text>
             {{ enteredValue || value }}
           </v-card-text>
         </v-card>
       </v-flex>
-      <v-flex xs1>  
+      <v-flex xs12 sm2 md1>  
         <v-card dark color="black" @click="clear">
           <v-card-text class="text-xs-center">
             DEL
@@ -18,10 +18,9 @@
       </v-flex>
     </v-layout>
     
-    <v-layout row justify-center>
-
-      <v-flex xs4>
-        <v-layout align-center justify-center column fill-height>
+    <v-layout row wrap justify-center>
+      <v-flex xs12 sm10 md4>
+        <v-layout column align-space-around>
           <v-layout text-xs-center justify-center>
             <v-flex xs12>  
               <v-layout row wrap grid-list-xs>
@@ -38,7 +37,7 @@
         </v-layout> 
       </v-flex>
 
-      <v-flex xs1>
+      <v-flex xs12 sm2 md1>
         <v-layout column>
           <v-flex v-for="operator in operators" :key="operator">
             <v-card dark color="grey darken-3" @click="operatorClick(operator)">
@@ -54,7 +53,6 @@
           </v-card>
         </v-layout>
       </v-flex>
-
     </v-layout>
 
   </v-container>
