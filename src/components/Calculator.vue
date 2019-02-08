@@ -9,7 +9,7 @@
           </v-card-text>
         </v-card>
       </v-flex>
-      <v-flex xs12 sm2 md1>  
+      <v-flex xs12 sm2 md1>
         <v-card dark color="black" @click="clear">
           <v-card-text class="text-xs-center">
             DEL
@@ -17,12 +17,12 @@
         </v-card>
       </v-flex>
     </v-layout>
-    
+
     <v-layout row wrap justify-center>
       <v-flex xs12 sm10 md4>
         <v-layout column align-space-around>
           <v-layout text-xs-center justify-center>
-            <v-flex xs12>  
+            <v-flex xs12>
               <v-layout row wrap grid-list-xs>
                 <v-flex v-for="num in numbers" :key="num" xs4>
                   <v-card dark color="black" @click="numberClick(num)">
@@ -34,7 +34,7 @@
               </v-layout>
             </v-flex>
           </v-layout>
-        </v-layout> 
+        </v-layout>
       </v-flex>
 
       <v-flex xs12 sm2 md1>
@@ -59,51 +59,51 @@
 </template>
 
 <script>
-  const MATH_OPERATORS = {
-    divide: '/',
-    times: '*',
-    minus: '-',
-    plus: '+'
-  };
+const MATH_OPERATORS = {
+  divide: '/',
+  times: '*',
+  minus: '-',
+  plus: '+'
+};
 
-  export default {
-    data: () => {
-      return {
-        value: 0,
-        currentOperator: null,
-        appliedValue: [],
-        numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
-        operators: Object.keys(MATH_OPERATORS)
-      };
+export default {
+  data: () => {
+    return {
+      value: 0,
+      currentOperator: null,
+      appliedValue: [],
+      numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
+      operators: Object.keys(MATH_OPERATORS)
+    };
+  },
+  methods: {
+    numberClick(num) {
+      this.appliedValue.push(num);
     },
-    methods: {
-      numberClick(num) {
-        this.appliedValue.push(num);
-      },
-      operatorClick(operator) {
-        if (!this.value) {
-          this.value = this.enteredValue;
-          this.appliedValue = [];
-        }
-        this.currentOperator = MATH_OPERATORS[operator];
-      },
-      equals() {
-        this.value = eval(`${this.value} ${this.currentOperator} ${this.enteredValue}`);
-        this.currentOperator = null;
-        this.appliedValue = [];
-      },
-      clear() {
-        this.value = 0;
-        this.currentOperator = null;
+    operatorClick(operator) {
+      if (!this.value) {
+        this.value = this.enteredValue;
         this.appliedValue = [];
       }
+      this.currentOperator = MATH_OPERATORS[operator];
     },
-    computed: {
-      enteredValue() {
-        return this.appliedValue.join('');
-      }
+    equals() {
+      this.value = eval(`${this.value} ${this.currentOperator} ${this.enteredValue}`);
+      this.currentOperator = null;
+      this.appliedValue = [];
+    },
+    clear() {
+      this.value = 0;
+      this.currentOperator = null;
+      this.appliedValue = [];
+    }
+  },
+  computed: {
+    enteredValue() {
+      return this.appliedValue.join('');
     }
   }
+};
 </script>
 
 <style>
