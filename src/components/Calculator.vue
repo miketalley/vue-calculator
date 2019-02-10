@@ -36,17 +36,9 @@
       <v-flex xs12 sm2 md1>
         <v-layout column>
           <v-flex v-for="operator in operators" :key="operator">
-            <v-card dark color="grey darken-3" @click="operatorClick(operator)">
-              <v-card-text class="text-xs-center">
-                <i class="fa" :class="`fa-${operator}`"></i>
-              </v-card-text>
-            </v-card>
+            <Operator :click="operatorClick" :operator="operator"></Operator>
           </v-flex>
-          <v-card dark color="red" @click="equals">
-            <v-card-text class="text-xs-center">
-              <i class="fa fa-equals"></i>
-            </v-card-text>
-          </v-card>
+          <Equals :click="equals"></Equals>
         </v-layout>
       </v-flex>
     </v-layout>
@@ -56,6 +48,9 @@
 
 <script>
 import Number from './Number.vue';
+import Operator from './Operator.vue';
+import Equals from './Equals.vue';
+
 const MATH_OPERATORS = {
   divide: '/',
   times: '*',
@@ -101,7 +96,9 @@ export default {
     }
   },
   components: {
-    Number
+    Number,
+    Operator,
+    Equals
   }
 };
 </script>
