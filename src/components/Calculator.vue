@@ -51,21 +51,14 @@ import Number from './Number.vue';
 import Operator from './Operator.vue';
 import Equals from './Equals.vue';
 
-const MATH_OPERATORS = {
-  divide: '/',
-  times: '*',
-  minus: '-',
-  plus: '+'
-};
-
 export default {
-  data: () => {
+  data() {
     return {
       value: 0,
       currentOperator: null,
       appliedValue: [],
       numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
-      operators: Object.keys(MATH_OPERATORS)
+      operators: ['/', '*', '-', '+']
     };
   },
   methods: {
@@ -77,7 +70,7 @@ export default {
         this.value = this.enteredValue;
         this.appliedValue = [];
       }
-      this.currentOperator = MATH_OPERATORS[operator];
+      this.currentOperator = operator;
     },
     equals() {
       this.value = eval(`${this.value} ${this.currentOperator} ${this.enteredValue}`);

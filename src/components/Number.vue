@@ -8,16 +8,16 @@
 
 <script>
 const NUMBER_KEYCODES = {
-  48: 0,
-  49: 1,
-  50: 2,
-  51: 3,
-  52: 4,
-  53: 5,
-  54: 6,
-  55: 7,
-  56: 8,
-  57: 9
+  0: 48,
+  1: 49,
+  2: 50,
+  3: 51,
+  4: 52,
+  5: 53,
+  6: 54,
+  7: 55,
+  8: 56,
+  9: 57
 };
 
 export default {
@@ -25,11 +25,16 @@ export default {
     'num',
     'click'
   ],
+  data() {
+    return {
+      keyCode: NUMBER_KEYCODES[this.num]
+    }
+  },
   created() {
     document.addEventListener('keydown', (e) => {
-      const recognizedKeyCode = NUMBER_KEYCODES[e.keyCode];
+      const keyCodeMatch = e.keyCode == this.keyCode;
 
-      if (recognizedKeyCode != this.num) {
+      if (e.shiftKey || !keyCodeMatch) {
         return;
       }
 
