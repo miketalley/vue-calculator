@@ -25,11 +25,7 @@
             <v-flex xs12>  
               <v-layout row wrap grid-list-xs>
                 <v-flex v-for="num in numbers" :key="num" xs4>
-                  <v-card dark color="black" @click="numberClick(num)">
-                    <v-card-text>
-                      {{ num }}
-                    </v-card-text>
-                  </v-card>
+                  <Number :num="num" :click="numberClick"></Number>
                 </v-flex>
               </v-layout>
             </v-flex>
@@ -59,6 +55,7 @@
 </template>
 
 <script>
+  import Number from './Number.vue';
   const MATH_OPERATORS = {
     divide: '/',
     times: '*',
@@ -102,6 +99,9 @@
       enteredValue() {
         return this.appliedValue.join('');
       }
+    },
+    components: {
+      Number
     }
   }
 </script>
