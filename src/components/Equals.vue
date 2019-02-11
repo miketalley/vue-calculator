@@ -7,7 +7,7 @@
 </template>
 
 <script>
-const KEY_CODE = 187;
+const KEY_CODE = 13;
 const SHIFT_KEY = false;
 
 export default {
