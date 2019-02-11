@@ -10,11 +10,7 @@
         </v-card>
       </v-flex>
       <v-flex xs12 sm2 md1>
-        <v-card dark color="black" @click="clear">
-          <v-card-text class="text-xs-center">
-            DEL
-          </v-card-text>
-        </v-card>
+        <Clear :click="clear"></Clear>
       </v-flex>
     </v-layout>
 
@@ -50,6 +46,7 @@
 import Number from './Number.vue';
 import Operator from './Operator.vue';
 import Equals from './Equals.vue';
+import Clear from './Clear.vue';
 
 export default {
   data() {
@@ -57,7 +54,7 @@ export default {
       value: 0,
       currentOperator: null,
       appliedValue: [],
-      numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
+      numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '.'],
       operators: ['/', '*', '-', '+']
     };
   },
@@ -91,7 +88,14 @@ export default {
   components: {
     Number,
     Operator,
-    Equals
+    Equals,
+    Clear
   }
 };
 </script>
+
+<style>
+.v-card {
+  font-size: 20px;
+}
+</style>

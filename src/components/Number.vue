@@ -1,7 +1,7 @@
 <template>
 <v-card dark color="black" @click="click(num)">
   <v-card-text>
-      {{ num }}
+    {{ num }}
   </v-card-text>
 </v-card>
 </template>
@@ -17,7 +17,8 @@ const NUMBER_KEYCODES = {
   6: 54,
   7: 55,
   8: 56,
-  9: 57
+  9: 57,
+  '.': 190
 };
 
 export default {
@@ -43,3 +44,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.v-card {
+  font-size: 20px;
+}
+</style>
